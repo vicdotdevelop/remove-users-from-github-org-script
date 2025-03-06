@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "github-org-user-removal"
+version = "0.1.0"
+description = "GitHub Enterprise Organization User Removal Utility"
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "github_org_user_removal"}]
+
+[tool.poetry.scripts]
+github-org-user-removal = "github_org_user_removal.__main__:main"
+
+[tool.poetry.dependencies]
+python = ">=3.8.1"
+pygithub = "^2.6.1"
+python-dotenv = "^1.0.1"
+argparse = "^1.4.0"
+colorama = "^0.4.6"
+cryptography = "<40.0.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.3.0"
+isort = "^5.13.2"
+pytest = "^8.0.0"
+mypy = "^1.9.0"
+flake8 = "^7.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ["py38", "py39", "py310", "py311", "py312"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
